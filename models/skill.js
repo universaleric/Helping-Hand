@@ -26,11 +26,11 @@ Skill.init(
         model: 'user',
         key: 'id',
       },
-  },
-  
+  }},
+  {
     sequelize,
     timestamps: false,
-    freezeTableName: true,
+    // freezeTableName: true,
     underscored: true,
     modelName: 'skill', 
   }
