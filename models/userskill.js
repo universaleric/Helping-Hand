@@ -12,6 +12,20 @@ Userskill.init(
       autoIncrement: true,
     },
 
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id',
+        },
+    },
+    skills_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'skill',
+          key: 'id',
+        },
+    },
   },
   {
     sequelize,
