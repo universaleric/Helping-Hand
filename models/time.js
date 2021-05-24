@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Time extends Model {}
 
@@ -14,14 +14,13 @@ Time.init(
     times: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      },
+    },
   },
   {
     sequelize,
     timestamps: false,
-    freezeTableName: true,
     underscored: true,
-    modelName: 'times', 
+    modelName: "time",
   }
 );
 

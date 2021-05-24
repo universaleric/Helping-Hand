@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Day extends Model {}
 
@@ -19,9 +19,8 @@ Day.init(
   {
     sequelize,
     timestamps: false,
-    freezeTableName: true,
     underscored: true,
-    modelName: 'day', // double check proper model name
+    modelName: "day", // double check proper model name
   }
 );
 

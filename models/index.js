@@ -1,9 +1,7 @@
-const Day= require('./day');
-const message = require('./message');
-const skill = require('./skill');
-const User = require('./User');
-const time = require('./time');
+const Day = require("./day");
+const Message = require("./message");
+const Skill = require("./skill");
+const User = require("./User");
+const Time = require("./time");
 
-
-
-module.exports = {Day, message, skill, User, time}
+module.exports = { Day, Message, Skill, User, Time };
