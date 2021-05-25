@@ -1,5 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const { Day } = require(".");
+const sequelize = require("../config/connection");
 
 class Day extends Model {}
 
@@ -11,6 +12,7 @@ Day.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
     days: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -21,7 +23,7 @@ Day.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'day', // double check proper model name
+    modelName: "days",
   }
 );
 
