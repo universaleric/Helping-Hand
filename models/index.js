@@ -17,21 +17,21 @@ Availability.hasMany(User, {
   foreignKey: "user_id",
 });
 
-Message.belongsTo(User, {
-  foreignKey: "message_id",
-}),
-  Userskill.belongsTo(Skill, {
-    foreignKey: "skill_id",
-  }),
-  Userskill.hasMany(User, {
-    foreignKey: "user_id",
-  }),
-  (module.exports = {
-    Day,
-    Message,
-    Skill,
-    User,
-    Time,
-    Availability,
-    Userskill,
-  });
+// Message.belongsTo(User, {
+//   foreignKey: "message_id",
+// });
+// Userskill.belongsTo(Skill, {
+//   foreignKey: "skills_id",
+// });
+Userskill.hasMany(User, {
+  foreignKey: "user_id",
+});
+module.exports = {
+  Day,
+  Message,
+  Skill,
+  User,
+  Time,
+  Availability,
+  Userskill,
+};
