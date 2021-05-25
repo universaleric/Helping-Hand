@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, Password, FormBtn } from "../components/Form";
+import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
@@ -82,6 +83,9 @@ function SignUp() {
             >
               Submit
             </FormBtn>
+            <Link to="login">
+              <FormBtn>Return To Login</FormBtn>
+            </Link>
           </form>
         </Col>
       </Row>

@@ -15,15 +15,9 @@ function Login() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (
-      formObject.username &&
-      formObject.password
-    ) {
-      API.saveUser({
-        first_name: formObject.first_name,
-        last_name: formObject.last_name,
+    if (formObject.username && formObject.password) {
+      API.loginCred({
         username: formObject.username,
-        phone_number: formObject.phone_number,
         password: formObject.password,
       })
         .then((res) => console.log(res))
@@ -52,16 +46,14 @@ function Login() {
               placeholder="Password"
             />
             <FormBtn
-              disabled={
-                !(
-                  formObject.username &&
-                  formObject.password
-                )
-              }
+              disabled={!(formObject.username && formObject.password)}
               onClick={handleFormSubmit}
             >
               Login
             </FormBtn>
+            <Link to="signup">
+              <FormBtn>Sign Up!</FormBtn>
+            </Link>
           </form>
         </Col>
       </Row>
