@@ -28,9 +28,9 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isPhoneNumber: true,
-      },
+      // validate: {
+      //   isPhoneNumber: true,
+      // },
     },
     username: {
       type: DataTypes.STRING,

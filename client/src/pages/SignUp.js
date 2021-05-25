@@ -1,78 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, Password, FormBtn } from "../components/Form";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
 function SignUp() {
-  const [formObject, setFormObject] = useState({})
-
+  const [formObject, setFormObject] = useState({});
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
+    setFormObject({ ...formObject, [name]: value });
+  }
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.firstName &&
-      formObject.lastName &&
-      formObject.userName &&
-      formObject.phoneNum &&
-      formObject.password) {
+    if (
+      formObject.first_name &&
+      formObject.last_name &&
+      formObject.username &&
+      formObject.phone_number &&
+      formObject.password
+    ) {
       API.saveUser({
-        firstName: formObject.firstName,
-        lastName: formObject.lastName,
-        userName: formObject.userName,
-        phoneNum: formObject.phoneNum,
-        password: formObject.password
+        first_name: formObject.first_name,
+        last_name: formObject.last_name,
+        username: formObject.username,
+        phone_number: formObject.phone_number,
+        password: formObject.password,
       })
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
     }
-  };
+  }
 
   return (
     <Container fluid>
+      <Nav>
+        <h1>Helping Hand</h1>
+        <p>For when you want to DIY but just need a little help.</p>
+      </Nav>
       <Row>
-        <Nav>
-          <h1>Helping Hand</h1>
-          <p>For when you want to DIY but just need a little help.</p>
-        </Nav>
         <Col size="md-6">
+          <h3>Sign Up!</h3>
           <form>
             <Input
               onChange={handleInputChange}
-              name="firstName"
-              placeholder="First Name (required)"
+              name="first_name"
+              placeholder="First Name"
             />
             <Input
               onChange={handleInputChange}
-              name="lastName"
-              placeholder="Last Name (required)"
+              name="last_name"
+              placeholder="Last Name"
             />
             <Input
               onChange={handleInputChange}
-              name="userName"
-              placeholder="User Name (required)"
+              name="username"
+              placeholder="User Name"
             />
             <Input
               onChange={handleInputChange}
-              name="phoneNum"
-              placeholder="Phone Number(required)"
+              name="phone_number"
+              placeholder="Phone Number"
             />
             <Password
               onChange={handleInputChange}
               name="password"
-              placeholder="Password(required)"
+              placeholder="Password"
             />
             <FormBtn
               disabled={
                 !(
-                  formObject.firstName &&
-                  formObject.lastName &&
-                  formObject.userName &&
-                  formObject.phoneNum &&
+                  formObject.first_name &&
+                  formObject.last_name &&
+                  formObject.username &&
+                  formObject.phone_number &&
                   formObject.password
                 )
               }

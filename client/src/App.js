@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
-import "./App.css";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -9,7 +10,10 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/signup"]}>
+          <Route exact path={["/", "/login"]}>
+            <Login />
+          </Route>
+          <Route exact path={["/signup"]}>
             <SignUp />
           </Route>
         </Switch>
