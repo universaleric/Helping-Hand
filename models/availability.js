@@ -15,21 +15,21 @@ Availability.init(
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id',
         },
     },
     day_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'day',
+          model: 'days',
           key: 'id',
         },
     },
     time_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'time',
+          model: 'times',
           key: 'id',
         },
     },

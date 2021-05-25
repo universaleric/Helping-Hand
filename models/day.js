@@ -1,9 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const { Day } = require(".");
+const sequelize = require("../config/connection");
 
-class Userskill extends Model {}
+class Day extends Model {}
 
-Userskill.init(
+Day.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,14 +13,18 @@ Userskill.init(
       autoIncrement: true,
     },
 
+    days: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'day', 
+    modelName: "days",
   }
 );
 
-module.exports = Userskill;
+module.exports = Day;
