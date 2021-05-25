@@ -11,6 +11,7 @@ Day.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
     days: {
       type: DataTypes.STRING,
       allowNull: false,
