@@ -26,3 +26,24 @@ export function FormBtn(props) {
     </button>
   );
 }
+
+export function DropDown(props) {
+  return (
+    <div class="row">
+      <div class="col-md-12">
+        <select class="mdb-select md-form" multiple>
+          <option value="" disabled selected>
+            Choose your country
+          </option>
+          <option value="1">USA</option>
+          <option value="2">Germany</option>
+          <option value="3">France</option>
+          <option value="3">Poland</option>
+          <option value="3">Japan</option>
+        </select>
+        <label class="mdb-main-label">Label example</label>
+        <button class="btn-save btn btn-primary btn-sm">Save</button>
+      </div>
+    </div>
+  );
+}
