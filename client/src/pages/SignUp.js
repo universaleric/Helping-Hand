@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import { Input, Password, FormBtn, DropDown } from "../components/Form";
+import { Input, Password, FormBtn } from "../components/Form";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
@@ -88,11 +88,11 @@ function SignUp() {
             </Link>
           </form>
         </Col>
-        <Col size="md-6">
+        {/* <Col size="md-6">
         <form>
         <DropDown></DropDown>
         </form>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

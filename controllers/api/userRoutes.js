@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  console.log(req.body);
   try {
     const userData = await User.findOne({
       where: { username: req.body.username },
@@ -50,7 +51,13 @@ router.post("/login", async (req, res) => {
       res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+
+    if (process.env.NODE_ENV === "production") {
+      res.status(400).json({ message: "Something went wrong!" });
+    } else {
+      res.status(400).json(err);
+    }
   }
 });
 
