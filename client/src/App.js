@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Results from "./pages/Results";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path={["/signup"]}>
             <SignUp />
+          </Route>
+          <Route exact path={["/results"]}>
+            <Results />
           </Route>
         </Switch>
       </div>
