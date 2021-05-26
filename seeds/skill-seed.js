@@ -1,11 +1,12 @@
-const { Skill } = require('../models');
+const { Skill } = require("../models");
 
 const skillData = [
-
-    {
-        name:"",
-    }
-
+  { skills_name: "plumbing" },
+  { skills_name: "painting" },
+  { skills_name: "stain removal" },
+  { skills_name: "folding clothes" },
+  { skills_name: "electrical" },
+  { skills_name: "cleaning clothes" },
 ];
 
 const seedSkill = () => Skill.bulkCreate(skillData);
