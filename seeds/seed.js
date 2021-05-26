@@ -13,8 +13,8 @@ const seedAll = async () => {
 
   console.log("\n----- DATABASE SYNCED -----\n");
 
-  await seedAvailability();
-  console.log("\n----- SEEDED -----\n");
+  // await seedAvailability();
+  // console.log("\n----- SEEDED -----\n");
   await seedDay();
   console.log("\n----- SEEDED -----\n");
   await seedMessage();
