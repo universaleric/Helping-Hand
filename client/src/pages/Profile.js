@@ -3,35 +3,34 @@ const sequelize = require("../config/connection");
 
 function Profile(event) {
   return (
-    <div>
-      <div className="header">
+    <Container fluid>
+      <Nav>
+      <h1>Helping Hand</h1>
+      <p>For when you want to DIY but just need a little help.</p>
+      </Nav>
+          <h3>Hello, {userName}</h3>
+          <button type="button" class="btn btn-inbox">
+            View Inbox
+          </button>
         <div>
-          <div>
-            <strong>Hello, {userName.props}</strong>
-            <button type="button" class="btn btn-inbox">
-              View Inbox
-            </button>
-          </div>
-          <div>
-            <a href="/availability">
-              {userName.availability.props}Availability // needs to be formatted with the grid//
-            </a>
-          </div>
-          <li>
-            <a href="./models/skills.js">{userName.skill.props}Skills</a>
-          </li>
-          <li>
-            <a href="./models/userskill.js">
+          <a href="/availability">
+            {userName.availability}Availability // needs to be formatted
+            with the grid//
+          </a>
+        </div>
+        <li>
+          <a href="./models/skills.js">{userName.skill}Skills</a>
+        </li>
+        <li>
+          <a href="./models/userskill.js">
             {" "}
             <button type="button" class="btn btn-success">
-                Success
+              Success
             </button>
-            {userName.userskill.props}!
-            </a>
-          </li>
-        </div>
-      </div>
-    </div>
+            {userName.userskill}!
+          </a>
+        </li>
+    </Container>
   );
 }
 
