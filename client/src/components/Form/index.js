@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+
 
 const animatedComponents = makeAnimated();
 
@@ -39,11 +40,25 @@ export function AnimatedMulti(props) {
       components={animatedComponents}
       defaultValue={[]}
       isMulti
-      options={props.skills.map(skill => {
-        return {value: skill.skills_name, label: skill.skills_name }
-      })
-        
-      }
+      options={props.skills.map((skill) => {
+        return { value: skill.skills_name, label: skill.skills_name };
+      })}
     />
   );
 }
+
+export function AnimatedSingle(props) {
+  console.log(props.skills_name);
+  return (
+    <Select
+      closeMenuOnSelect={false}
+      components={animatedComponents}
+      defaultValue={{}}
+      options={props.skills.map((skill) => {
+        return { value: skill.skills_name, label: skill.skills_name };
+      })}
+    />
+  );
+}
+
+
