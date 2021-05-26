@@ -1,23 +1,38 @@
-const { Model, DataTypes} = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-
-class Profile extends Model {
-    render() {
-    return(
+function Profile(event) {
+  return (
+    <div>
+      <div className="header">
         <div>
-            <h1>Inbox</h1>
-                <ul className="header">
-                    <li><a href='/inbox'>{userName.props}<strong>Inbox</strong></a></li>
-                    <li><a href='/availability'>{userName.availability.props}Availability</a></li>
-                    <li><a href='./models/skills.js'>{userName.skill.props}Skills</a></li>
-                    <li><a href='./models/userskill.js'> <button className="search helping hand">Find a Helping Hand!</button>{userName.userskill.props}!</a></li>
-                </ul>
+          <div>
+            <strong>Hello, {userName.props}</strong>
+            <button type="button" class="btn btn-inbox">
+              View Inbox
+            </button>
+          </div>
+          <div>
+            <a href="/availability">
+              {userName.availability.props}Availability // needs to be formatted with the grid//
+            </a>
+          </div>
+          <li>
+            <a href="./models/skills.js">{userName.skill.props}Skills</a>
+          </li>
+          <li>
+            <a href="./models/userskill.js">
+            {" "}
+            <button type="button" class="btn btn-success">
+                Success
+            </button>
+            {userName.userskill.props}!
+            </a>
+          </li>
         </div>
-        );
-    };
+      </div>
+    </div>
+  );
 }
 
-
 export default Profile;
-
