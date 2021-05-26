@@ -1,19 +1,19 @@
-const { Availability } = require('../models');
+// const { Availability } = require('../models');
 
-const availabilityData = [
+// const availabilityData = [
 
-    {
-        user_id: []
-    },
-    {
-        day_id: []
-    },
-    {
-        time_id: []
-    },
+//     {
+//         user_id: []
+//     },
+//     {
+//         day_id: []
+//     },
+//     {
+//         time_id: []
+//     },
 
-];
+// ];
 
-const seedAvailability = () => Availability.bulkCreate(availabilityData);
+// const seedAvailability = () => Availability.bulkCreate(availabilityData);
 
-module.exports = seedAvailability;
+// module.exports = seedAvailability;

@@ -12,20 +12,9 @@ Skill.init(
       autoIncrement: true,
     },
 
-    skills_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "skills",
-        key: "id",
-      },
-    },
-
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "users",
-        key: "id",
-      },
+    skills_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
