@@ -1,11 +1,15 @@
-const { Time } = require('../models');
+const { Time } = require("../models");
 
 const timeData = [
-
-    {
-        times: []
-    },
-
+  {
+    times: [],
+  },
+  {
+    day_id: [],
+  },
+  {
+    time_id: [],
+  },
 ];
 
 const seedTime = () => Time.bulkCreate(timeData);

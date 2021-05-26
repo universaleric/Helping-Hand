@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import { Input, Password, FormBtn } from "../components/Form";
+import { Input, Password, FormBtn, AnimatedMulti } from "../components/Form";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    loadSkills();
+  }, []);
+
+  function loadSkills() {
+    API.getSkills()
+      .then((res) => {
+        setSkills(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -89,11 +103,14 @@ function SignUp() {
             </Link>
           </form>
         </Col>
-        {/* <Col size="md-6">
-        <form>
-        <DropDown></DropDown>
-        </form>
-        </Col> */}
+        <Col size="md-6">
+          <h5>
+            Please select which skills you would consider yourself an expert...
+          </h5>
+          <form>
+            <AnimatedMulti skills={skills}></AnimatedMulti>
+          </form>
+        </Col>
       </Row>
     </Container>
   );
