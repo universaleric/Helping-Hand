@@ -9,9 +9,7 @@ function Profile(event) {
         <p>For when you want to DIY but just need a little help.</p>
       </Nav>
       <h3>Hello, {userName}</h3>
-      <button type="button" class="btn btn-inbox">
-        View Inbox
-      </button>
+      <button type="button" class="btn btn-inbox">View Inbox</button>
       //needs to add in the hand counter.
       <div>
         <a href="/">
@@ -22,7 +20,8 @@ function Profile(event) {
         </a>
       </div>
       <form>
-        <a href="./models/skills.js">{userName.skill}Skills</a>
+        <link to="./models/skills.js">{userName.skill}Skills</link>
+          
       </form>
       <input>
         <a href="./models/userskill.js">
@@ -38,7 +37,7 @@ function Profile(event) {
           <li> {skill} </li>
           <li> {skill} </li>
           <li> {skill} </li>
-          <li> {skill} </li>
+          <li> {skill} </li>;
         </ul>
       </Col>
     </Container>
