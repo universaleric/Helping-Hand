@@ -2,7 +2,7 @@ const { Time } = require("../models");
 
 const timeData = [
   {
-    hour: '6pm'
+    hour: "6:00AM",
   },
  
 ];

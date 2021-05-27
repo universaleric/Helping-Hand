@@ -37,7 +37,7 @@ function Profile(event) {
           <li> {skill} </li>
           <li> {skill} </li>
           <li> {skill} </li>
-          <li> {skill} </li>;
+          <li> {skill} </li>
         </ul>
       </Col>
     </Container>

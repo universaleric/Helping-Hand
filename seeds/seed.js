@@ -1,4 +1,4 @@
-const seedAvailability = require("./availability-seed");
+// const seedAvailability = require("./availability-seed");
 const seedDay = require("./day-seed");
 const seedMessage = require("./message-seed");
 const seedSkill = require("./skill-seed");
@@ -12,9 +12,7 @@ const seedAll = async () => {
   await sequelize.sync({ force: true });
 
   console.log("\n----- DATABASE SYNCED -----\n");
-
-  // await seedAvailability();
-  // console.log("\n----- SEEDED -----\n");
+  
   await seedDay();
   console.log("\n----- SEEDED -----\n");
   await seedMessage();
@@ -24,6 +22,8 @@ const seedAll = async () => {
   await seedTime();
   console.log("\n----- SEEDED -----\n");
   await seedUser();
+  console.log("\n----- SEEDED -----\n");
+  await seedAvailability();
   console.log("\n----- SEEDED -----\n");
   await seedUserSkill();
   console.log("\n----- SEEDED -----\n");
