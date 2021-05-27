@@ -4,6 +4,7 @@ const timeData = [
   {
     hour: "6:00AM",
   },
+ 
 ];
 
 const seedTime = () => Time.bulkCreate(timeData);
