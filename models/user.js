@@ -43,13 +43,6 @@ User.init(
         len: [8],
       },
     },
-    message_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "messages",
-        key: "id",
-      },
-    },
 
     //Hand Counter?
   },

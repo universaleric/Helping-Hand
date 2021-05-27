@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
@@ -33,29 +33,15 @@ export function FormBtn(props) {
 }
 
 export function AnimatedMulti(props) {
-  console.log(props.skills_name);
   return (
     <Select
       closeMenuOnSelect={false}
       components={animatedComponents}
       defaultValue={[]}
       isMulti
+      onChange={props.onChange}
       options={props.skills.map((skill) => {
-        return { value: skill.skills_name, label: skill.skills_name };
-      })}
-    />
-  );
-}
-
-export function AnimatedSingle(props) {
-  console.log(props.skills_name);
-  return (
-    <Select
-      closeMenuOnSelect={false}
-      components={animatedComponents}
-      defaultValue={{}}
-      options={props.skills.map((skill) => {
-        return { value: skill.skills_name, label: skill.skills_name };
+        return { value: skill.id, label: skill.skills_name };
       })}
     />
   );
