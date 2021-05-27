@@ -1,11 +1,9 @@
-const { Message } = require('../models');
+const { Message } = require("../models");
 
 const messageData = [
-
-    {
-        messages: ""
-    },
-
+  {
+    messages: "This is a message.",
+  },
 ];
 
 const seedMessage = () => Message.bulkCreate(messageData);

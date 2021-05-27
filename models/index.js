@@ -3,8 +3,8 @@ const Message = require("./message");
 const Skill = require("./skill");
 const User = require("./User");
 const Time = require("./time");
-const Availability = require("./time");
-const Userskill = require("./time");
+const Availability = require("./availability");
+const Userskill = require("./userskill");
 
 Availability.belongsTo(Day, {
   foreignKey: "day_id",
@@ -13,17 +13,18 @@ Availability.belongsTo(Time, {
   foreignKey: "time_id",
 });
 
-Availability.hasMany(User, {
+Availability.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-// Message.belongsTo(User, {
-//   foreignKey: "message_id",
-// });
-// Userskill.belongsTo(Skill, {
-//   foreignKey: "skills_id",
-// });
-Userskill.hasMany(User, {
+Message.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+Userskill.belongsTo(Skill, {
+  foreignKey: "skills_id",
+});
+Userskill.belongsTo(User, {
   foreignKey: "user_id",
 });
 module.exports = {

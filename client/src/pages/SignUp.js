@@ -8,6 +8,7 @@ import API from "../utils/API";
 function SignUp() {
   const [formObject, setFormObject] = useState({});
   const [skills, setSkills] = useState([]);
+  const [selections, setSelections] = useState([]);
 
   useEffect(() => {
     loadSkills();
@@ -25,6 +26,16 @@ function SignUp() {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
+  }
+
+  function handleSelection(event) {
+    console.log(event);
+    console.log("handleselection was called");
+    // const storedSelection = event.skills;
+    setSelections(
+      Array.isArray(event) ? event.map((skill) => skill.value) : []
+    );
+    console.log(selections);
   }
 
   function handleFormSubmit(event) {
@@ -45,6 +56,13 @@ function SignUp() {
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+    }
+    if (selections) {
+      selections.map((skills_id) => {
+        API.saveUserSkills({ skills_id })
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+      });
     }
   }
 
@@ -104,10 +122,14 @@ function SignUp() {
         </Col>
         <Col size="md-6">
           <h5>
-            Please select which skills you would consider yourself an expert...
+            Please select the skills for which you would consider yourself an
+            expert...
           </h5>
           <form>
-            <AnimatedMulti skills={skills}></AnimatedMulti>
+            <AnimatedMulti
+              skills={skills}
+              onChange={handleSelection}
+            ></AnimatedMulti>
           </form>
         </Col>
       </Row>
