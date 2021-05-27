@@ -1,7 +1,22 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+import React, { useState, useEffect } from "react";
+import { Col, Row, Container } from "../components/Grid";
+import { Input, Password, FormBtn, AnimatedMulti } from "../components/Form";
+import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
+import API from "../utils/API";
 
-function Profile(event) {
+
+function Profile() {
+  const [users, setUsers] = useState([]);
+  function loadUsers() {
+    API.getUsers()
+      .then((res) => {
+        setUsers(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <Container fluid>
       <Nav>
