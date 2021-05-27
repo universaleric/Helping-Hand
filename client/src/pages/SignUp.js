@@ -64,6 +64,7 @@ function SignUp() {
           .catch((err) => console.log(err));
       });
     }
+
   }
 
   return (
@@ -101,20 +102,23 @@ function SignUp() {
               name="password"
               placeholder="Password"
             />
+            <Link to="profile">
             <FormBtn
-              disabled={
-                !(
-                  formObject.first_name &&
-                  formObject.last_name &&
-                  formObject.username &&
-                  formObject.phone_number &&
-                  formObject.password
+            disabled={
+              !(
+                formObject.first_name &&
+                formObject.last_name &&
+                formObject.username &&
+                formObject.phone_number &&
+                formObject.password
                 )
               }
               onClick={handleFormSubmit}
-            >
+              >
               Submit
-            </FormBtn>
+              </FormBtn>
+              </Link>
+
             <Link to="login">
               <FormBtn>Return To Login</FormBtn>
             </Link>

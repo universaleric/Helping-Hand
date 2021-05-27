@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
-function Login() {
+function Login(props) {
   const [formObject, setFormObject] = useState({});
 
   function handleInputChange(event) {
@@ -20,7 +20,9 @@ function Login() {
         username: formObject.username,
         password: formObject.password,
       })
-        .then((res) => console.log(res))
+        .then((res) => {
+          props.setUserInfo(res.data.user);
+          console.log(res)})
         .catch((err) => console.log(err));
     }
   }
