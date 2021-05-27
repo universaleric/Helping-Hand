@@ -31,7 +31,6 @@ function SignUp() {
   function handleSelection(event) {
     console.log(event);
     console.log("handleselection was called");
-    // const storedSelection = event.skills;
     setSelections(
       Array.isArray(event) ? event.map((skill) => skill.value) : []
     );
@@ -40,6 +39,7 @@ function SignUp() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    console.log(formObject);
     if (
       formObject.first_name &&
       formObject.last_name &&
