@@ -71,6 +71,7 @@ function SignUp() {
       <Nav>
         <h1>Helping Hand</h1>
         <p>For when you want to DIY but just need a little help.</p>
+        
       </Nav>
       <h3>Sign Up!</h3>
       <Row>
