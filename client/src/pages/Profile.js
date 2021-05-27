@@ -7,7 +7,13 @@ import API from "../utils/API";
 
 
 function Profile() {
+
   const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
   function loadUsers() {
     API.getUsers()
       .then((res) => {
