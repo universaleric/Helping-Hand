@@ -1,4 +1,4 @@
-// const seedAvailability = require("./availability-seed");
+const seedAvailability = require("./availability-seed");
 const seedDay = require("./day-seed");
 const seedMessage = require("./message-seed");
 const seedSkill = require("./skill-seed");
