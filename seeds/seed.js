@@ -1,4 +1,4 @@
-// const seedAvailability = require("./availability-seed");
+const seedAvailability = require("./availability-seed");
 const seedDay = require("./day-seed");
 const seedMessage = require("./message-seed");
 const seedSkill = require("./skill-seed");
@@ -13,11 +13,6 @@ const seedAll = async () => {
 
   console.log("\n----- DATABASE SYNCED -----\n");
 
-<<<<<<< HEAD
-  // await seedAvailability();
-  // console.log("\n----- SEEDED -----\n");
-=======
->>>>>>> 13f763ceca57d4e63093d7ab45e84843dc5b673d
   await seedDay();
   console.log("\n----- SEEDED -----\n");
   await seedMessage();

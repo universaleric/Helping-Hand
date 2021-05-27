@@ -2,7 +2,6 @@ import React from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
-
 const animatedComponents = makeAnimated();
 
 export function Input(props) {
@@ -47,4 +46,16 @@ export function AnimatedMulti(props) {
   );
 }
 
-
+export function AnimatedSingle(props) {
+  return (
+    <Select
+      closeMenuOnSelect={false}
+      components={animatedComponents}
+      defaultValue={[]}
+      // onChange={props.onChange}
+      options={props.skills.map((skill) => {
+        return { value: skill.id, label: skill.skills_name };
+      })}
+    />
+  );
+}
