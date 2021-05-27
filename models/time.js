@@ -11,8 +11,8 @@ Time.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    times: {
-      type: DataTypes.INTEGER,
+    hour: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
