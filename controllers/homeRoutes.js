@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Skill, skill } = require("../models");
 const { User, user } = require("../models");
+const { Userskill, userSkills } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/skills", async (req, res) => {
@@ -15,7 +16,7 @@ router.get("/skills", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}); 
 
 
 router.get("/users", async (req, res) => {
@@ -27,6 +28,21 @@ router.get("/users", async (req, res) => {
     const users = usersData.map((user) => user.get({ plain: true }));
 
     res.json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get("/userSkills", async (req, res) => {
+  try {
+    // Get all users
+    const userSkillsData = await Userskill.findAll({});
+
+    // Serialize data so the template can read it
+    const userSkills = userSkillsData.map((userSkill) => userSkill.get({ plain: true }));
+
+    res.json(userSkills);
   } catch (err) {
     res.status(500).json(err);
   }

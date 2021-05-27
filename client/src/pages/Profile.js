@@ -16,7 +16,7 @@ function Profile(props) {
     loadUsers();
     loadUserSkills();
     loadSkills();
-    // skillsList();
+    skillsList();
   }, []);
 
   function loadUsers() {

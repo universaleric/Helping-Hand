@@ -7,6 +7,9 @@ export default {
   getUsers: function() {
     return axios.get("/users");
   },
+  getUserSkills: function() {
+    return axios.get("/userSkills");
+  },
   
   saveUser: function (userData) {
     return axios.post("/api/users", userData);
