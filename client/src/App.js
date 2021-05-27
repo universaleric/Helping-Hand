@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Results from "./pages/Results";
 import Inbox from "./pages/Inbox"
 import Availability from "./pages/Availability"
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route exact path={["/availability"]}>
             <Availability />
+          </Route>
+          <Route exact path={["/profile"]}>
+            <Profile />
           </Route>
         </Switch>
       </div>

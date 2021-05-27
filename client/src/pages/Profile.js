@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
-
 function Profile() {
-
   const [users, setUsers] = useState([]);
+  const [userSkills, setUserSkills] = useState([]);
 
   useEffect(() => {
     loadUsers();
+    loadUserSkills();
   }, []);
 
   function loadUsers() {
@@ -23,44 +23,51 @@ function Profile() {
       .catch((err) => console.log(err));
   }
 
+  function loadUserSkills() {
+    API.getUserSkills()
+      .then((res) => {
+        setUserSkills(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <Container fluid>
       <Nav>
         <h1>Helping Hand</h1>
         <p>For when you want to DIY but just need a little help.</p>
       </Nav>
-      <h3>Hello, {userName}</h3>
-      <button type="button" class="btn btn-inbox">View Inbox</button>
-      //needs to add in the hand counter.
-      <div>
-        <a href="/">
-          {" "}
-          //needs to be linked to the grid availibility page
-          {userName.availability}Availability // needs to be formatted with the
-          grid//
-        </a>
-      </div>
-      <form>
-        <link to="./models/skills.js">{userName.skill}Skills</link>
+      <h3>Hello, {users.userName}</h3>
+      <Row>
+        <Col size="md-6">
+          <Link to="inbox">
+            <FormBtn> View Inbox </FormBtn>
+          </Link>
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Your Skills List</Card.Title>
+              <Card.Text>Ello Poppet!</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col size="md-6">
+          <Link to="results">
+            <FormBtn> Find a Helping Hand</FormBtn>
+          </Link>
           
-      </form>
-      <input>
-        <a href="./models/userskill.js">
-          {" "}
-          <button type="button" class="btn btn-success">
-            Find a Helping Hand
-          </button>
-          {userName.userskill}
-        </a>
-      </input>
-      <Col size="md-6">
-        <ul className="skillList">
-          <li> {skill} </li>
-          <li> {skill} </li>
-          <li> {skill} </li>
-          <li> {skill} </li>
-        </ul>
-      </Col>
+        </Col>
+
+        <Col size="md-6">
+          <ul className="skillList">
+            <li> {skill} </li>
+            <li> {skill} </li>
+            <li> {skill} </li>
+            <li> {skill} </li>
+          </ul>
+        </Col>
+      </Row>
     </Container>
   );
 }
