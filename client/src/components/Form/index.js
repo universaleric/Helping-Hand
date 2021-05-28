@@ -45,6 +45,7 @@ export function AnimatedMulti(props) {
     />
   );
 }
+
 export function AnimatedSingle(props) {
   return (
     <Select
@@ -55,5 +56,131 @@ export function AnimatedSingle(props) {
         return { value: skill.id, label: skill.skills_name };
       })}
     />
+  );
+}
+
+export function AnimatedSunday(props) {
+  return (
+    <div>
+      <h5>Sunday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
+  );
+}
+
+export function AnimatedMonday(props) {
+  return (
+    <div>
+      <h5>Monday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
+  );
+}
+
+export function AnimatedTuesday(props) {
+  return (
+    <div>
+      <h5>Tuesday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
+  );
+}
+
+export function AnimatedWednesday(props) {
+  return (
+    <div>
+      <h5>Wednesday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
+  );
+}
+
+export function AnimatedThursday(props) {
+  return (
+    <div>
+      <h5>Thursday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
+  );
+}
+
+export function AnimatedFriday(props) {
+  return (
+    <div>
+      <h5>Friday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
+  );
+}
+
+export function AnimatedSaturday(props) {
+  return (
+    <div>
+      <h5>Saturday</h5>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        defaultValue={[]}
+        isMulti
+        onChange={props.onChange}
+        options={props.times.map((time) => {
+          return { value: time.id, label: time.hour };
+        })}
+      />
+    </div>
   );
 }
