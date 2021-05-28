@@ -9,7 +9,6 @@ import Card from "react-bootstrap/Card";
 
 
 function Results() {
-  const [formObject, setFormObject] = useState({});
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {

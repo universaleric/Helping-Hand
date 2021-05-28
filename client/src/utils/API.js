@@ -4,11 +4,14 @@ export default {
   getSkills: function() {
     return axios.get("/skills");
   },
+  getSkillsData: function(id) {
+    return axios.get("/skillsList/" + id);
+  },
   getUsers: function() {
     return axios.get("/users");
   },
-  getUserSkills: function() {
-    return axios.get("/userSkills");
+  getUserSkills: function(id) {
+    return axios.get("/userSkills/" + id);
   },
   
   saveUser: function (userData) {

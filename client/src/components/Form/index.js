@@ -57,17 +57,3 @@ export function AnimatedSingle(props) {
     />
   );
 }
-
-export function AnimatedSingle(props) {
-  return (
-    <Select
-      closeMenuOnSelect={false}
-      components={animatedComponents}
-      defaultValue={[]}
-      // onChange={props.onChange}
-      options={props.skills.map((skill) => {
-        return { value: skill.id, label: skill.skills_name };
-      })}
-    />
-  );
-}

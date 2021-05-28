@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav";
 import Card from "react-bootstrap/Card";

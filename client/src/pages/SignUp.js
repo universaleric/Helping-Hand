@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
-function SignUp() {
+function SignUp(props) {
   const [formObject, setFormObject] = useState({});
   const [skills, setSkills] = useState([]);
   const [selections, setSelections] = useState([]);
@@ -54,7 +54,13 @@ function SignUp() {
         phone_number: formObject.phone_number,
         password: formObject.password,
       })
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log(res.data);
+          sessionStorage.setItem("user_id", res.data.id);
+          sessionStorage.setItem("first_name", res.data.first_name);
+          console.log(res.data.first_name);
+          console.log(res);
+        })
         .catch((err) => console.log(err));
     }
     if (selections) {
@@ -64,7 +70,7 @@ function SignUp() {
           .catch((err) => console.log(err));
       });
     }
-
+    window.location.href = "/profile";
   }
 
   return (
@@ -102,22 +108,21 @@ function SignUp() {
               name="password"
               placeholder="Password"
             />
-            <Link to="profile">
+
             <FormBtn
-            disabled={
-              !(
-                formObject.first_name &&
-                formObject.last_name &&
-                formObject.username &&
-                formObject.phone_number &&
-                formObject.password
+              disabled={
+                !(
+                  formObject.first_name &&
+                  formObject.last_name &&
+                  formObject.username &&
+                  formObject.phone_number &&
+                  formObject.password
                 )
               }
               onClick={handleFormSubmit}
-              >
+            >
               Submit
-              </FormBtn>
-              </Link>
+            </FormBtn>
 
             <Link to="login">
               <FormBtn>Return To Login</FormBtn>

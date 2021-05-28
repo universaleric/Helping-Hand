@@ -16,8 +16,7 @@ router.get("/skills", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}); 
-
+});
 
 router.get("/users", async (req, res) => {
   try {
@@ -33,16 +32,63 @@ router.get("/users", async (req, res) => {
   }
 });
 
-
 router.get("/userSkills", async (req, res) => {
   try {
     // Get all users
     const userSkillsData = await Userskill.findAll({});
 
     // Serialize data so the template can read it
-    const userSkills = userSkillsData.map((userSkill) => userSkill.get({ plain: true }));
+    const userSkills = userSkillsData.map((userSkill) =>
+      userSkill.get({ plain: true })
+    );
 
     res.json(userSkills);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/userSkills/:id", async (req, res) => {
+  try {
+    const userSkillsIdData = await Userskill.findAll({
+      where: {
+        user_id: req.params.id,
+      },
+    });
+
+    console.log(userSkillsIdData);
+    // const questions = quizData.get({ plain: true });
+    const userSkills = userSkillsIdData.map((userSkill) =>
+      userSkill.get({ plain: true })
+    );
+
+    console.log(userSkills);
+
+    res.json(userSkills);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/skillsList/:id", async (req, res) => {
+  try {
+    const skillsListData = await Skill.findAll({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    console.log(skillsListData);
+
+    const profileSkills = skillsListData.map((profileSkill) =>
+      profileSkill.get({ plain: true })
+    );
+    console.log(profileSkills);
+
+    const skillsName = profileSkills.map((skillName) => skillName.skills_name);
+    console.log(skillsName);
+
+    res.json(skillsName);
   } catch (err) {
     res.status(500).json(err);
   }

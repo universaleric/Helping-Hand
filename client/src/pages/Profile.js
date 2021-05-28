@@ -1,59 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import { Input, Password, FormBtn, AnimatedMulti } from "../components/Form";
+import { FormBtn } from "../components/Form";
+import { ListItem, List } from "../components/List";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import API from "../utils/API";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 
-function Profile(props) {
-  const [users, setUsers] = useState([]);
-  const [userSkills, setUserSkills] = useState([]);
-  const [skills, setSkills] = useState([]);
-
+function Profile() {
+  let first_name = sessionStorage.getItem("first_name");
+  let listItems = [];
 
   useEffect(() => {
-    loadUsers();
-    loadUserSkills();
-    loadSkills();
-    skillsList();
+    userSkillsList();
   }, []);
 
-  function loadUsers() {
-    API.getUsers()
+  function userSkillsList() {
+    let id = sessionStorage.getItem("user_id");
+    console.log(id);
+    API.getUserSkills(id)
       .then((res) => {
-        setUsers(res.data);
-        console.log(res.data);
+        let data = res.data;
+        let ids = data.map((item) => item.skills_id);
+        console.log(ids);
+        ids.map((idArray) =>
+          API.getSkillsData(idArray)
+            .then((res) => {
+              let list = res.data[0];
+              listItems.push(list);
+              console.log(listItems);
+            })
+            .catch((err) => console.log(err))
+        );
       })
       .catch((err) => console.log(err));
-  }
-
-  function loadUserSkills() {
-    API.getUserSkills()
-      .then((res) => {
-        setUserSkills(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  }
-
-
-  function loadSkills() {
-    API.getSkills()
-      .then((res) => {
-        setSkills(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  }
-
-
-  function skillsList() {
-    const listItems = userSkills.filter(listItem => listItem.user_id == props.userInfo.id);
-    const listSkills = listItems.skills_id;
-      console.log(listSkills);
-
-    // const userSkills = skills.filter(skill => skill.id == )
   }
 
   return (
@@ -62,7 +42,7 @@ function Profile(props) {
         <h1>Helping Hand</h1>
         <p>For when you want to DIY but just need a little help.</p>
       </Nav>
-      <h3>Hello, {users.userName}</h3>
+      <h3>Hello, {first_name}!</h3>
       <Row>
         <Col size="md-6">
           <Link to="inbox">
@@ -71,7 +51,11 @@ function Profile(props) {
           <Card style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>Your Skills List</Card.Title>
-              <Card.Text>Ello Poppet!</Card.Text>
+              <List>
+                {listItems.map((listItem) => (
+                  <ListItem key={listItem}>{listItem}</ListItem>
+                ))}
+              </List>
             </Card.Body>
           </Card>
         </Col>
@@ -80,21 +64,10 @@ function Profile(props) {
           <Link to="results">
             <FormBtn> Find a Helping Hand</FormBtn>
           </Link>
-          
         </Col>
+      </Row>
+    </Container>
+  );
+}
 
-        </Row>
-        </Container>
-        );
-      }
-      
-      export default Profile;
-      
-// <Col size="md-6">
-//   <ul className="skillList">
-//     <li> {skill} </li>
-//     <li> {skill} </li>
-//     <li> {skill} </li>
-//     <li> {skill} </li>
-//   </ul>
-// </Col>
+export default Profile;
