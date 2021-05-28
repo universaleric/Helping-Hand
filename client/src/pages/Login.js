@@ -21,7 +21,8 @@ function Login(props) {
         password: formObject.password,
       })
         .then((res) => {
-          props.setUserInfo(res.data.user);
+          
+          sessionStorage.setItem("user_id", res.data.user.id);
           console.log(res)})
         .catch((err) => console.log(err));
     }

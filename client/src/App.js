@@ -1,24 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Results from "./pages/Results";
-import Inbox from "./pages/Inbox"
-import Availability from "./pages/Availability"
+import Inbox from "./pages/Inbox";
+import Availability from "./pages/Availability";
 import Profile from "./pages/Profile";
- 
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
-
   return (
     <Router>
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/login"]}>
-            <Login setUserInfo={setUserInfo} />
+          <Route exact path={["/login"]}>
+            <Login />
           </Route>
           <Route exact path={["/signup"]}>
             <SignUp />
@@ -32,8 +29,8 @@ function App() {
           <Route exact path={["/availability"]}>
             <Availability />
           </Route>
-          <Route exact path={["/profile"]}>
-            <Profile userInfo={userInfo} />
+          <Route exact path={["/", "/profile"]}>
+            <Profile />
           </Route>
         </Switch>
       </div>

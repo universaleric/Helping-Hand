@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import React from "react";
+import { Container } from "../components/Grid";
 import Nav from "../components/Nav";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
@@ -22,14 +22,14 @@ function Availability() {
           fontWeight: "bold",
         }}
       >
-        <Card.Body>Expert 1’s Availability:</Card.Body>
+        <Card.Body>Julian’s Availability:</Card.Body>
       </Card>
       <h2
         style={{
           textAlign: "center",
         }}
       >
-        Please select the 1 hour time slot you would like Expert 1 to call you
+        Please select the 1 hour time slot you would like Julian to call you
         during:
       </h2>
 
@@ -38,56 +38,118 @@ function Availability() {
         variant="warning"
         style={{ width: "80rem", marginLeft: "auto", marginRight: "auto" }}
       >
-        <thead>
-          <tr>
-            <th>#</th>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <th key={index}>*inset time*</th>
-            ))}
-          </tr>
-        </thead>
         <tbody>
           <tr>
+            <td>Sunday</td>
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
+          </tr>
+          <tr>
             <td>Monday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
           </tr>
           <tr>
             <td>Tuesday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
           </tr>
           <tr>
             <td>Wednesday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
           </tr>
           <tr>
             <td>Thursday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
           </tr>
           <tr>
             <td>Friday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
           </tr>
           <tr>
             <td>Saturday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
-          </tr>
-          <tr>
-            <td>Sunday</td>
-            {Array.from({ length: 12 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>8:00AM</td>
+            <td>9:00AM</td>
+            <td>10:00AM</td>
+            <td>11:00AM</td>
+            <td>12:00PM</td>
+            <td>1:00PM</td>
+            <td>2:00PM</td>
+            <td>3:00PM</td>
+            <td>4:00PM</td>
+            <td>5:00PM</td>
+            <td>6:00PM</td>
+            <td>7:00PM</td>
+            <td>8:00PM</td>
           </tr>
         </tbody>
       </Table>
